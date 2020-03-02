@@ -1,4 +1,53 @@
 <div id="container">
   <strong>{{ name }}</strong>
-  <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div></div>
+  <div *ngIf="name=='Tab 1 page'">
+    <button class="btn btn-success" (click)="this.myShinyNewOsc.start()">Start Osc 1</button>
+    <br>
+    <button class="btn btn-success" (click)="this.myShinyNewOsc2.start()">Start Osc 2</button>
+    <br>
+    <label for="osc1Freq">Oscillator 1 Freq: </label>
+    <b>{{this.myShinyNewOsc.frequency.value}} Hz</b>
+    <br>
+    <input type="range" [(ngModel)]="this.myShinyNewOsc.frequency.value" min="0" max="2000" name="" id="osc1Freq">
+    <br>
+    <label for="osc1Freq">Oscillator 2 Freq: </label>
+    <b>{{this.myShinyNewOsc2.frequency.value}} Hz</b>
+    <br>
+    <input type="range" [(ngModel)]="this.myShinyNewOsc2.frequency.value" min="0" max="2000" name="" id="osc1Freq">
+    <br>
+    <label for="filt1Freq">Filter 1 Freq: </label>
+    <b>{{this.filter.frequency.value}} Hz</b>
+    <br>
+    <input type="range" [(ngModel)]="this.filter.frequency.value" min="0" max="1000" name="" id="filt1Freq">
+    <br>
+</div>
+<div *ngIf="name=='Tab 2 page'">
+    <button (click)="synth.triggerAttack(this.notes[this.pluckNote1])">Pluck</button>
+    <button (click)="polySynth.triggerAttackRelease(
+      [this.notes[this.polyNote1],this.notes[this.polyNote2],this.notes[this.polyNote3]]
+      ,'2n')">Poly</button>
+    <br>
+    <label for="pluck1">Pluck Note: </label>
+    <b>{{this.notes[this.pluckNote1]}}</b>
+    <br>
+    <input type="range" [(ngModel)]="this.pluckNote1" min="0" max="6" name="" id="pluck1">
+    
+    <br>
+    <label for="poly1">Poly Note 1: </label>
+    <b>{{this.notes[this.polyNote1]}}</b>
+    <br>
+    <input type="range" [(ngModel)]="this.polyNote1" min="0" max="6" name="" id="poly1">
+    <br>
+    <label for="poly2">Poly Note 2: </label>
+    <b>{{this.notes[this.polyNote2]}}</b>
+    <br>
+    <input type="range" [(ngModel)]="this.polyNote2" min="0" max="6" name="" id="poly2">
+    <br>
+    <label for="poly1">Poly Note 3: </label>
+    <b>{{this.notes[this.polyNote3]}}</b>
+    <br>
+    <input type="range" [(ngModel)]="this.polyNote3" min="0" max="6" name="" id="poly3">
+  </div>
+
 </div>
