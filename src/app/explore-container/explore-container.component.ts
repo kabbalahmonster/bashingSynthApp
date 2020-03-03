@@ -32,7 +32,7 @@ export class ExploreContainerComponent implements OnInit {
     this.filter = new BiquadFilterNode(this.myAudioContext);  
     this.synth = new Tone.PluckSynth({dampening:1000}).toMaster(); 
     this.polySynth = new Tone.PolySynth().toMaster();
-    this.notes=['A4','B4','C4','D4','E4','F4','G4'];
+    this.notes=['C4','D4','E4','F4','G4','A4','B4'];
 
 
   }
